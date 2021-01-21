@@ -1,9 +1,9 @@
 clear;close all;
 h=[0.74 -0.514 0.37 0.216 0.062];%given channel statistics
 N=1000;%block length
-T=11;%tap count
+T=10;%tap count
 frame_cnt=10000;%frame count
-fer_lim=250000;%frame error limit
+fer_lim=50000;%frame error limit
 SNR_dB=0:2:20;%snr values in db
 SNR=1./(2*(10.^(SNR_dB./10)));%snr values in bit energy
 BER_MMSE=zeros(1,length(SNR_dB));%ber vs snr vector
@@ -34,6 +34,7 @@ for s=1:length(SNR_dB)%snr loop
     BER_MMSE(1,s)=fer/(fr*N);%calculate ber
     [SNR_dB(s) fr fer]%print the current parameters
 end%end snr loop
+save('CE_MMSE','BER_MMSE');
 %--------------------------------------------------------------------------
 %plot results--------------------------------------------------------------
 figure;
@@ -51,7 +52,7 @@ for i=1:T
 end
 end
 %--------------------------------------------------------------------------
-function o = zeroshift(A, N, D)
+function o=zeroshift(A,N,D)
 %|A: input vector|N: offset|D: direction|
 o=zeros(size(A));
 if D=='R' o(N+1:end)=A(1:end-N);
