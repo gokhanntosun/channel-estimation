@@ -6,5 +6,5 @@ This repo includes:
 - SNR vs. BER measurements obtained with Monte Carlo simulations.
 
 See 
-Adaptive Filter Theory by Haykin, 5th Ed.
-Digital Communications by Proakis & Salehi, 5h Ed.
+*Adaptive Filter Theory by Haykin, 5th Ed.
+*Digital Communications by Proakis & Salehi, 5h Ed.
